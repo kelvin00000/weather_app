@@ -1,3 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+    -webkit-text-fill-color: inherit;
+  }
+}
+
+@layer components{
+    .welcome-input{
+        @apply 
+        h-[50px] 
+        w-[200px] 
+        p-[10px] 
+        pl-5 
+        rounded-3xl 
+        text-[25px]
+        text-[#0c0b0b]
+        bg-[#F0E9E9]
+        dark:bg-dark_sec
+        dark:text-[lightgrey]
+        focus:outline-none
+        focus:shadow-lg
+        placeholder:text-gray-600
+    }
+}

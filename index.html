@@ -7,8 +7,19 @@
 
     <link href="./dist/output.css" rel="stylesheet">
 </head>
-<body>
-    
+<body class="flex-col justify-center bg-light_main dark:bg-dark_main font-primary">
+    <section class="flex flex-col justify-center items-center h-dvh w-dvw" id="welcome-screen">
+        <div class="flex flex-col justify-start items-start gap-[15px]">
+            <h1 class="m-3 text-5xl font-semibold">Welcome</h1>
+            <input class="welcome-input" type="text" id="user-name" placeholder="Name" maxlength="15">
+            <input class="welcome-input w-[250px]" type="text" id="user-city" placeholder="City" maxlength="10">
+            <button class="place-self-center h-[45px] w-[170px] mt-[30px] py- px-5 font-normal bg-black text-[white] rounded-3xl shadow-2xl" type="button" id="continue-btn">Continue</button>
+        </div>
+    </section>
+
+    <section id="main-screen">
+
+    </section>
 
     <script type="module" src="/index.js"></script>
 </body>
