@@ -7,18 +7,111 @@
 
     <link href="./dist/output.css" rel="stylesheet">
 </head>
-<body class="flex-col justify-center bg-light_main dark:bg-dark_main font-primary">
-    <section class="flex flex-col justify-center items-center h-dvh w-dvw" id="welcome-screen">
+<body class="flex-col justify-center bg-light_main dark:bg-dark_main dark:text-white font-primary">
+    <section class="hidden flex flex-col justify-center md:justify-normal justify-center items-center h-dvh w-dvw" id="welcome-screen">
         <div class="flex flex-col justify-start items-start gap-[15px]">
             <h1 class="m-3 text-5xl font-semibold">Welcome</h1>
+            <svg class="absolute left-[54%] top-[17%]" width="90px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"  xml:space="preserve"><style type="text/css">.st0{fill:#000000;}</style>
+                <g>
+                    <path class="st0" d="M115.958,269.922c16.999-10.12,36.842-15.916,58.04-15.916c2.556,0,5.127,0.078,7.682,0.234
+                        c7.199-24.681,20.957-46.355,39.203-63.12c-3.49-39.437-36.562-70.32-76.879-70.32c-42.647,0-77.207,34.56-77.207,77.199
+                        C66.798,230.766,87.194,258.719,115.958,269.922z"/>
+                    <rect x="135.652" y="54.002" class="st0" width="16.696" height="45.911"/>
+                    <polygon class="st0" points="102.184,108.88 79.232,69.116 64.772,77.467 87.724,117.232 	"/>
+                    <polygon class="st0" points="15.114,133.233 54.878,156.185 63.23,141.726 23.466,118.774 	"/><polygon class="st0" points="45.919,189.654 0,189.654 0,206.35 45.919,206.342 	"/><polygon class="st0" points="15.114,262.77 23.466,277.23 63.23,254.27 54.878,239.811 	"/><rect x="240.478" y="114.523" transform="matrix(0.4998 0.8661 -0.8661 0.4998 243.5358 -146.7501)" class="st0" width="16.694" height="45.913"/>
+                    <polygon class="st0" points="223.228,77.467 208.776,69.116 185.817,108.88 200.269,117.232 	"/><path class="st0" d="M431.997,298c-0.031,0-0.062,0.008-0.101,0.008c0.054-1.332,0.101-2.665,0.101-4.004
+                        C431.997,229.932,380.064,178,316,178c-60.012,0-109.382,45.575-115.388,104.006c-8.414-2.602-17.342-4.005-26.614-4.005
+                        C124.294,278.001,84,318.295,84,368c0,49.704,40.294,89.998,89.998,89.998h257.999c44.182,0,80.003-35.814,80.003-79.995
+                        C512,333.814,476.178,298,431.997,298z"/>
+                </g>
+            </svg>
             <input class="welcome-input" type="text" id="user-name" placeholder="Name" maxlength="15">
             <input class="welcome-input w-[250px]" type="text" id="user-city" placeholder="City" maxlength="10">
-            <button class="place-self-center h-[45px] w-[170px] mt-[30px] py- px-5 font-normal bg-black text-[white] rounded-3xl shadow-2xl" type="button" id="continue-btn">Continue</button>
+            <button class="place-self-center h-[45px] w-[170px] mt-[30px] px-5 font-normal bg-black text-[white] rounded-3xl shadow-2xl" type="button" id="continue-btn">Continue</button>
         </div>
     </section>
 
-    <section id="main-screen">
+    <section class="flex flex-col justify-normal md:justify-center justify-self-center items-center h-dvh w-[90%] md:w-[60%]" id="main-screen">
+        <div class="flex place-self-end gap-4 mt-[25px]">
+            <button class="flex justify-center items-center gap-2 px-4 rounded-3xl bg-light_sec dark:bg-dark_sec" id="change-theme-btn">
+                <svg class="fill-[black]" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3">
+                    <path d="M440-80q-33 0-56.5-23.5T360-160v-160H240q-33 0-56.5-23.5T160-400v-280q0-66 47-113t113-47h480v440q0 33-23.5 56.5T720-320H600v160q0 33-23.5 56.5T520-80h-80ZM240-560h480v-200h-40v160h-80v-160h-40v80h-80v-80H320q-33 0-56.5 23.5T240-680v120Zm0 160h480v-80H240v80Zm0 0v-80 80Z"/>
+                </svg>
+                <p id="select-theme">dark</p>
+            </button>
+            <button class="flex justify-center items-center gap-2 px-4 py-[3px] rounded-3xl bg-light_sec dark:bg-dark_sec" id="change-theme-btn" id="settings-btn">
+                <svg class="fill-[black]" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3">
+                    <path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"/>
+                </svg>
+                settings
+            </button>
+        </div>
 
+        <div class="flex flex-col justify-center h-[85px] place-self-start text-start">
+            <p class="mt-[200px] md:mt-[30px] leading-[0px] text-[18px]">Good <span id="timeofday">Evening</span><span>, </span><span id="user-name">Kelvin</span></p>
+            <p class="text-[50px] md:text-[55px] font-medium">Sunyani, Bono-region</p>
+        </div>
+
+        <div class="flex justify-center items-center place-self-start gap-4 mt-[140px] md:mt-8">
+            <h1 class="flex justify-center items-center h-[40px] pr-3 text-[40px] border-r-2 border-r-solid border-r-dark_sec" id="temperature">70*C</h1>
+            <div class="">
+                <p class="font-bold" id="weather-condition">Scattered clouds</p>
+                <p>65* - 67* Real 75*</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-[40px] md:gap-[100px]">
+            <div class="w-fit mt-6 p-7 pt-4 bg-light_sec dark:bg-dark_sec  rounded-3xl">
+                <p class="mb-2 font-bold">Current Condition</p>
+                <div class="grid grid-cols-2 gap-x-2 gap-y-1">
+                    <div class="info-box">
+                        <p class="text-[14px]">Head</p>
+                        <p class="font-semibold" id="-detail">100%</p>
+                    </div>
+                    <div class="info-box">
+                        <p class="text-[14px]">Head</p>
+                        <p class="font-semibold" id="-detail">24.8978</p>
+                    </div>
+                    <div class="info-box">
+                        <p class="text-[14px]">Head</p>
+                        <p class="font-semibold" id="-detail">100%</p>
+                    </div>
+                    <div class="info-box">
+                        <p class="text-[14px]">Head</p>
+                        <p class="font-semibold" id="-detail">545.3</p>
+                    </div>
+                    <div class="info-box">
+                        <p class="text-[14px]">Head</p>
+                        <p class="font-semibold" id="-detail">100%</p>
+                    </div>
+                    <div class="info-box">
+                        <p class="text-[14px]">Head</p>
+                        <p class="font-semibold" id="-detail">343%</p>
+                    </div>
+                    <div class="info-box">
+                        <p class="text-[14px]">Head</p>
+                        <p class="font-semibold" id="-detail">232.343</p>
+                    </div>
+                    <div class="info-box">
+                        <p class="text-[14px]">Head</p>
+                        <p class="font-semibold" id="-detail">100%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:w-[45%]">
+                <div class="flex gap-2">
+                    <input class="welcome-input h-[40px] w-[230px] md:w-[190px] text-[19px]" type="text" id="city-input" maxlength="20" placeholder="Search a different city">
+                    <button class="flex justify-center items-center gap-1 px-4 h-[40px] rounded-3xl bg-light_sec dark:bg-dark_sec" id="search-city-btn">
+                        <svg class="fill-[black]" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3">
+                            <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                        </svg>
+                        Search
+                    </button>
+                </div>
+                <p class="mt-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex dolorum nisi quisquam optio incidunt placeat at hic deserunt recusandae fuga!</p>
+            </div>
+        </div>
     </section>
 
     <script type="module" src="/index.js"></script>
