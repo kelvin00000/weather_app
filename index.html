@@ -8,10 +8,10 @@
     <link href="./dist/output.css" rel="stylesheet">
 </head>
 <body class="flex-col justify-center bg-light_main dark:bg-dark_main dark:text-white font-primary">
-    <section class="hidden flex flex-col justify-center md:justify-normal justify-center items-center h-dvh w-dvw" id="welcome-screen">
-        <div class="flex flex-col justify-start items-start gap-[15px]">
+    <section class="welcome-screen hidden flex flex-col justify-center md:justify-normal justify-center items-center h-dvh w-dvw" id="welcome-screen">
+        <div class="flex flex-col justify-start items-start gap-[15px] md:mt-[180px]">
             <h1 class="m-3 text-5xl font-semibold">Welcome</h1>
-            <svg class="absolute left-[54%] top-[17%]" width="90px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"  xml:space="preserve"><style type="text/css">.st0{fill:#000000;}</style>
+            <svg class="absolute left-[62%] md:left-[54%] top-[25%] md:top-[17%] fill-black dark:fill-white" width="90px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"  xml:space="preserve"><style type="text/css"></style>
                 <g>
                     <path class="st0" d="M115.958,269.922c16.999-10.12,36.842-15.916,58.04-15.916c2.556,0,5.127,0.078,7.682,0.234
                         c7.199-24.681,20.957-46.355,39.203-63.12c-3.49-39.437-36.562-70.32-76.879-70.32c-42.647,0-77.207,34.56-77.207,77.199
@@ -25,34 +25,47 @@
                         C512,333.814,476.178,298,431.997,298z"/>
                 </g>
             </svg>
-            <input class="welcome-input" type="text" id="user-name" placeholder="Name" maxlength="15">
-            <input class="welcome-input w-[250px]" type="text" id="user-city" placeholder="City" maxlength="10">
-            <button class="place-self-center h-[45px] w-[170px] mt-[30px] px-5 font-normal bg-black text-[white] rounded-3xl shadow-2xl" type="button" id="continue-btn">Continue</button>
+            <input class="welcome-input" type="text" id="user-name" placeholder="Name" maxlength="12">
+            <input class="welcome-input w-[250px]" type="text" id="user-city" placeholder="City" maxlength="12">
+            <button class="place-self-center h-[45px] w-[170px] mt-[30px] px-5 font-normal bg-black dark:bg-white text-white font-semibold dark:text-black rounded-3xl shadow-2xl" type="button" id="continue-btn">Continue</button>
         </div>
     </section>
 
-    <section class="flex flex-col justify-normal md:justify-center justify-self-center items-center h-dvh w-[90%] md:w-[60%]" id="main-screen">
-        <div class="flex place-self-end gap-4 mt-[25px]">
-            <button class="flex justify-center items-center gap-2 px-4 rounded-3xl bg-light_sec dark:bg-dark_sec" id="change-theme-btn">
-                <svg class="fill-[black]" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3">
+    <section class="main-screen flex flex-col justify-normal md:justify-center justify-self-center items-center h-dvh w-[90%] md:w-[60%]" id="main-screen">
+        <div class="navbar flex place-self-end gap-4 mt-[25px]">
+            <button class="theme-btn flex justify-center items-center gap-1 px-4 rounded-3xl bg-light_sec dark:bg-dark_sec" id="change-theme-btn">
+                <svg class="fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3">
                     <path d="M440-80q-33 0-56.5-23.5T360-160v-160H240q-33 0-56.5-23.5T160-400v-280q0-66 47-113t113-47h480v440q0 33-23.5 56.5T720-320H600v160q0 33-23.5 56.5T520-80h-80ZM240-560h480v-200h-40v160h-80v-160h-40v80h-80v-80H320q-33 0-56.5 23.5T240-680v120Zm0 160h480v-80H240v80Zm0 0v-80 80Z"/>
                 </svg>
-                <p id="select-theme">dark</p>
+                <p id="select-theme">theme</p>
             </button>
-            <button class="flex justify-center items-center gap-2 px-4 py-[3px] rounded-3xl bg-light_sec dark:bg-dark_sec" id="change-theme-btn" id="settings-btn">
-                <svg class="fill-[black]" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3">
+            <button class="settings-btn flex justify-center items-center px-4 py-[7px] rounded-full bg-light_sec dark:bg-dark_sec" id="settings-open-btn">
+                <svg class="fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3">
                     <path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"/>
                 </svg>
-                settings
             </button>
         </div>
 
-        <div class="flex flex-col justify-center h-[85px] place-self-start text-start">
-            <p class="mt-[200px] md:mt-[30px] leading-[0px] text-[18px]">Good <span id="timeofday">Evening</span><span>, </span><span id="user-name">Kelvin</span></p>
-            <p class="text-[50px] md:text-[55px] font-medium">Sunyani, Bono-region</p>
+        <div class="settings-popup popup-hidden fixed top-[30%] md:top-48 flex flex-col h-[320px] w-[320px] p-3 bg-light_sec dark:bg-dark_sec rounded-3xl transition-all ease-in-out duration-200 z-50" id="settings-popup">
+            <div class="popup-padding flex flex-col h-full w-full p-3 bg-light_main dark:bg-dark_main rounded-3xl">
+                <button class="close-btn flex justify-center items-center place-self-end px-[9px] py-[9px] rounded-full bg-light_sec dark:bg-dark_sec" id="settings-close-btn">
+                    <svg class="fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                    </svg>
+                </button>
+                <input class="welcome-input h-[45px] w-[210px] md:w-[190px] mt-[30px] mb-[10px] text-[20px] md:text-[16px] bg-light_sec dark:bg-dark_sec" type="text" id="city-input" maxlength="12" placeholder="Change Name">
+                <input class="welcome-input h-[45px] w-[270px] md:w-[250px] text-[20px] md:text-[16px] bg-light_sec dark:bg-dark_sec" type="text" id="city-input" maxlength="12" placeholder="Change default city">
+                <button class="place-self-center h-[45px] w-[170px] mt-[30px] px-5 font-normal bg-black dark:bg-white text-white font-semibold dark:text-black rounded-3xl shadow-2xl" type="button" id="continue-btn">Done</button>
+                </div>
         </div>
 
-        <div class="flex justify-center items-center place-self-start gap-4 mt-[140px] md:mt-8">
+
+        <div class="header flex flex-col justify-center h-[85px] place-self-start text-start">
+            <p class="mt-[200px] md:mt-[30px] leading-[0px] text-[18px]">Good <span id="timeofday">Evening</span><span>, </span><span id="user-name">Kelvin</span></p>
+            <p class="mt-[18px] text-[50px] md:text-[55px] font-medium leading-[50px]">Sunyani, Bono-region</p>
+        </div>
+
+        <div class="weather-info-container flex justify-center items-center place-self-start gap-4 mt-[140px] md:mt-[25px]">
             <h1 class="flex justify-center items-center h-[40px] pr-3 text-[40px] border-r-2 border-r-solid border-r-dark_sec" id="temperature">70*C</h1>
             <div class="">
                 <p class="font-bold" id="weather-condition">Scattered clouds</p>
@@ -60,59 +73,62 @@
             </div>
         </div>
 
-        <div class="flex flex-col md:flex-row items-center gap-[40px] md:gap-[100px]">
-            <div class="w-fit mt-6 p-7 pt-4 bg-light_sec dark:bg-dark_sec  rounded-3xl">
+        <div class="weather-details-container flex flex-col md:flex-row items-center gap-[40px] md:gap-[100px]">
+            <div class="weather-deatils w-fit mt-6 p-7 pt-4 bg-light_sec dark:bg-dark_sec  rounded-3xl">
                 <p class="mb-2 font-bold">Current Condition</p>
                 <div class="grid grid-cols-2 gap-x-2 gap-y-1">
                     <div class="info-box">
-                        <p class="text-[14px]">Head</p>
+                        <p class="text-[15px]">Head</p>
                         <p class="font-semibold" id="-detail">100%</p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[14px]">Head</p>
+                        <p class="text-[15px]">Head</p>
                         <p class="font-semibold" id="-detail">24.8978</p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[14px]">Head</p>
+                        <p class="text-[15px]">Head</p>
                         <p class="font-semibold" id="-detail">100%</p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[14px]">Head</p>
+                        <p class="text-[15px]">Head</p>
                         <p class="font-semibold" id="-detail">545.3</p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[14px]">Head</p>
+                        <p class="text-[15px]">Head</p>
                         <p class="font-semibold" id="-detail">100%</p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[14px]">Head</p>
+                        <p class="text-[15px]">Head</p>
                         <p class="font-semibold" id="-detail">343%</p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[14px]">Head</p>
+                        <p class="text-[15px]">Head</p>
                         <p class="font-semibold" id="-detail">232.343</p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[14px]">Head</p>
+                        <p class="text-[15px]">Head</p>
                         <p class="font-semibold" id="-detail">100%</p>
                     </div>
                 </div>
             </div>
 
-            <div class="md:w-[45%]">
+            <div class="search-container md:w-[45%]">
                 <div class="flex gap-2">
-                    <input class="welcome-input h-[40px] w-[230px] md:w-[190px] text-[19px]" type="text" id="city-input" maxlength="20" placeholder="Search a different city">
-                    <button class="flex justify-center items-center gap-1 px-4 h-[40px] rounded-3xl bg-light_sec dark:bg-dark_sec" id="search-city-btn">
-                        <svg class="fill-[black]" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3">
+                    <input class="welcome-input h-[45px] w-[290px] md:w-[190px] text-[20px] md:text-[16px] " type="text" id="city-input" maxlength="12" placeholder="Search a different city">
+                    <button class="search-btn flex justify-center items-center gap-1 px-4 h-[45px] rounded-full bg-light_sec dark:bg-dark_sec" id="search-city-btn">
+                        <svg class="fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#e3e3e3">
                             <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
                         </svg>
-                        Search
                     </button>
                 </div>
-                <p class="mt-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex dolorum nisi quisquam optio incidunt placeat at hic deserunt recusandae fuga!</p>
+                <p class="mt-4">Rain's earthy smell comes from soil bacteria releasing chemicals. Raindrops trap air bubbles that burst and launch these aromatic compounds.</p>
             </div>
         </div>
     </section>
+
+    <div class="loader hidden fixed top-[50%] left-[50%] w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin-f z-50" id="loader"></div>
+    <div class="overlay popup-hidden fixed top-0 h-dvh w-dvw bg-[rgba(0,0,0,.75)] transition-all ease-in-out duration-200 z-40" id="overlay"></div>
+    
 
     <script type="module" src="/index.js"></script>
 </body>

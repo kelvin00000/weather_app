@@ -3,6 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   input:-webkit-autofill {
@@ -21,7 +22,7 @@
     rounded-full 
     text-[25px]
     text-[#0c0b0b]
-    bg-[#F0E9E9]
+    bg-light_sec
     dark:bg-dark_sec
     dark:text-[lightgrey]
     focus:outline-none
@@ -34,8 +35,14 @@
     w-[150px]
     px-4
     py-2
+    text-[18px]
     bg-light_main
     dark:bg-dark_main
     rounded-2xl
+  }
+
+  .popup-hidden{
+    visibility: hidden;
+    opacity: 0;
   }
 }
