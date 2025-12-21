@@ -8,8 +8,16 @@
     <link href="./dist/output.css" rel="stylesheet">
 </head>
 <body class="flex-col justify-center bg-light_main dark:bg-dark_main dark:text-white font-primary">
-    <section class="welcome-screen hidden flex flex-col justify-center md:justify-normal justify-center items-center h-dvh w-dvw" id="welcome-screen">
-        <div class="flex flex-col justify-start items-start gap-[15px] md:mt-[180px]">
+    <section class="welcome-screen flex flex-col  md:justify-normal items-center h-dvh w-dvw" id="welcome-screen">
+        <div class="navbar flex place-self-end mt-[25px] mr-[30px]">
+            <button class="theme-btn flex justify-center items-center gap-1 px-4 py-2 rounded-3xl bg-light_sec dark:bg-dark_sec" id="change-theme-btn">
+                <svg class="fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3">
+                    <path d="M440-80q-33 0-56.5-23.5T360-160v-160H240q-33 0-56.5-23.5T160-400v-280q0-66 47-113t113-47h480v440q0 33-23.5 56.5T720-320H600v160q0 33-23.5 56.5T520-80h-80ZM240-560h480v-200h-40v160h-80v-160h-40v80h-80v-80H320q-33 0-56.5 23.5T240-680v120Zm0 160h480v-80H240v80Zm0 0v-80 80Z"/>
+                </svg>
+                <p id="select-theme">theme</p>
+            </button>
+        </div>
+        <div class="flex flex-col justify-start items-start gap-[15px] mt-[59%] md:mt-[130px]">
             <h1 class="m-3 text-5xl font-semibold">Welcome</h1>
             <svg class="absolute left-[62%] md:left-[54%] top-[25%] md:top-[17%] fill-black dark:fill-white" width="90px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"  xml:space="preserve"><style type="text/css"></style>
                 <g>
@@ -46,75 +54,81 @@
             </button>
         </div>
 
-        <div class="settings-popup popup-hidden fixed top-[30%] md:top-48 flex flex-col h-[320px] w-[320px] p-3 bg-light_sec dark:bg-dark_sec rounded-3xl transition-all ease-in-out duration-200 z-50" id="settings-popup">
+        <div class="settings-popup popup-hidden fixed top-[30%] md:top-48 flex flex-col h-[320px] w-[320px] p-3 bg-light_sec dark:bg-dark_sec rounded-3xl transition-all ease-in-out duration-200 z-30" id="settings-popup">
             <div class="popup-padding flex flex-col h-full w-full p-3 bg-light_main dark:bg-dark_main rounded-3xl">
                 <button class="close-btn flex justify-center items-center place-self-end px-[9px] py-[9px] rounded-full bg-light_sec dark:bg-dark_sec" id="settings-close-btn">
                     <svg class="fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
                         <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
                     </svg>
                 </button>
-                <input class="welcome-input h-[45px] w-[210px] md:w-[190px] mt-[30px] mb-[10px] text-[20px] md:text-[16px] bg-light_sec dark:bg-dark_sec" type="text" id="city-input" maxlength="12" placeholder="Change Name">
-                <input class="welcome-input h-[45px] w-[270px] md:w-[250px] text-[20px] md:text-[16px] bg-light_sec dark:bg-dark_sec" type="text" id="city-input" maxlength="12" placeholder="Change default city">
-                <button class="place-self-center h-[45px] w-[170px] mt-[30px] px-5 font-normal bg-black dark:bg-white text-white font-semibold dark:text-black rounded-3xl shadow-2xl" type="button" id="continue-btn">Done</button>
-                </div>
+                <input class="welcome-input h-[45px] w-[210px] md:w-[190px] mt-[30px] mb-[10px] text-[20px] md:text-[16px] bg-light_sec dark:bg-dark_sec" type="text" id="changed-name" maxlength="12" placeholder="Change Name">
+                <input class="welcome-input h-[45px] w-[270px] md:w-[250px] text-[20px] md:text-[16px] bg-light_sec dark:bg-dark_sec" type="text" id="changed-city" maxlength="12" placeholder="Change default city">
+                <button class="place-self-center h-[45px] w-[170px] mt-[30px] px-5 bg-black dark:bg-white text-white font-semibold dark:text-black rounded-3xl shadow-2xl" type="button" id="change-default-button">Done</button>
+            </div>
         </div>
 
 
         <div class="header flex flex-col justify-center h-[85px] place-self-start text-start">
-            <p class="mt-[200px] md:mt-[30px] leading-[0px] text-[18px]">Good <span id="timeofday">Evening</span><span>, </span><span id="user-name">Kelvin</span></p>
-            <p class="mt-[18px] text-[50px] md:text-[55px] font-medium leading-[50px]">Sunyani, Bono-region</p>
+            <p class="mt-[200px] md:mt-[30px] leading-[0px] text-[18px]">Good <span id="timeofday">Evening</span><span>, </span><span id="user-name-display"></span></p>
+            <p class="mt-[18px] text-[55px] md:text-[60px] font-medium leading-[50px]"><span id="user-city-value"></span> - <span id="user-region-value"></span></p>
         </div>
 
-        <div class="weather-info-container flex justify-center items-center place-self-start gap-4 mt-[140px] md:mt-[25px]">
-            <h1 class="flex justify-center items-center h-[40px] pr-3 text-[40px] border-r-2 border-r-solid border-r-dark_sec" id="temperature">70*C</h1>
+        <div class="weather-info-container flex justify-center items-center place-self-start gap-4 mt-[125px] md:mt-[25px]">
+            <h1 class="flex justify-center items-center h-[40px] pr-3 text-[43px] border-r-2 border-r-solid border-r-dark_sec" id="temperature"><span id="main-temp-value"></span>&deg;<span class="temp-unit-value">C</span></h1>
             <div class="">
-                <p class="font-bold" id="weather-condition">Scattered clouds</p>
-                <p>65* - 67* Real 75*</p>
+                <p class="font-bold" id="weather-condition-value"></p>
+                <p>
+                    <span><span id="min-temp-value"></span>&deg;<span class="temp-unit-value">C</span></span>
+                    -
+                    <span><span id="max-temp-value"></span>&deg;<span class="temp-unit-value">C</span></span>
+                    Real 
+                    <span><span id="temp-value"></span>&deg;<span class="temp-unit-value">C</span></span>
+                </p>
             </div>
         </div>
 
         <div class="weather-details-container flex flex-col md:flex-row items-center gap-[40px] md:gap-[100px]">
-            <div class="weather-deatils w-fit mt-6 p-7 pt-4 bg-light_sec dark:bg-dark_sec  rounded-3xl">
+            <div class="weather-deatils w-[99%] mt-6 px-4 py-4 bg-light_sec dark:bg-dark_sec  rounded-3xl">
                 <p class="mb-2 font-bold">Current Condition</p>
-                <div class="grid grid-cols-2 gap-x-2 gap-y-1">
+                <div class="grid grid-cols-2 gap-x-1 gap-y-2">
                     <div class="info-box">
-                        <p class="text-[15px]">Head</p>
-                        <p class="font-semibold" id="-detail">100%</p>
+                        <p class="text-[15px]">Humidity (%)</p>
+                        <p class="font-semibold" id="humidity-value"></p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[15px]">Head</p>
-                        <p class="font-semibold" id="-detail">24.8978</p>
+                        <p class="text-[15px]">Pressure (hPa)</p>
+                        <p class="font-semibold" id="pressure-value"></p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[15px]">Head</p>
-                        <p class="font-semibold" id="-detail">100%</p>
+                        <p class="text-[15px]">Wind Gust (m/s)</p>
+                        <p class="font-semibold" id="windgust-value"></p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[15px]">Head</p>
-                        <p class="font-semibold" id="-detail">545.3</p>
+                        <p class="text-[15px]">Wind Speed (m/s)</p>
+                        <p class="font-semibold" id="windspeed-value"></p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[15px]">Head</p>
-                        <p class="font-semibold" id="-detail">100%</p>
+                        <p class="text-[15px]">Wind Direction</p>
+                        <p class="font-semibold" id="winddirection-value"></p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[15px]">Head</p>
-                        <p class="font-semibold" id="-detail">343%</p>
+                        <p class="text-[15px]">Description</p>
+                        <p class="font-semibold" id="description-value"></p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[15px]">Head</p>
-                        <p class="font-semibold" id="-detail">232.343</p>
+                        <p class="text-[15px]">Sea level (hPa)</p>
+                        <p class="font-semibold" id="sealevel-value"></p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[15px]">Head</p>
-                        <p class="font-semibold" id="-detail">100%</p>
+                        <p class="text-[15px]">Ground level (hPa)</p>
+                        <p class="font-semibold" id="groundlevel-value"></p>
                     </div>
                 </div>
             </div>
 
             <div class="search-container md:w-[45%]">
                 <div class="flex gap-2">
-                    <input class="welcome-input h-[45px] w-[290px] md:w-[190px] text-[20px] md:text-[16px] " type="text" id="city-input" maxlength="12" placeholder="Search a different city">
+                    <input class="welcome-input h-[45px] w-[290px] md:w-[190px] text-[20px] md:text-[16px] " type="text" id="city-search" maxlength="12" placeholder="Search a different city">
                     <button class="search-btn flex justify-center items-center gap-1 px-4 h-[45px] rounded-full bg-light_sec dark:bg-dark_sec" id="search-city-btn">
                         <svg class="fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#e3e3e3">
                             <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
@@ -126,8 +140,9 @@
         </div>
     </section>
 
-    <div class="loader hidden fixed top-[50%] left-[50%] w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin-f z-50" id="loader"></div>
-    <div class="overlay popup-hidden fixed top-0 h-dvh w-dvw bg-[rgba(0,0,0,.75)] transition-all ease-in-out duration-200 z-40" id="overlay"></div>
+    <div class="loader popup-hidden fixed top-[50%] left-[50%] w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin-f z-50" id="loader"></div>
+    <div class="overlay popup-hidden fixed top-0 h-dvh w-dvw bg-[rgba(0,0,0,.75)] transition-all ease-in-out duration-200 z-20" id="overlay"></div>
+    <div class="main-overlay popup-hidden fixed top-0 h-dvh w-dvw bg-[rgba(0,0,0,.75)] transition-all ease-in-out duration-200 z-40" id="main-overlay"></div>
     
 
     <script type="module" src="/index.js"></script>
