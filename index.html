@@ -35,7 +35,13 @@
             </svg>
             <input class="welcome-input" type="text" id="user-name" placeholder="Name" maxlength="15">
             <input class="welcome-input w-[250px]" type="text" id="user-city" placeholder="City" maxlength="20">
-            <button class="place-self-center h-[45px] w-[170px] mt-[30px] px-5 font-normal bg-black dark:bg-white text-white font-semibold dark:text-black rounded-3xl shadow-2xl" type="button" id="continue-btn">Continue</button>
+            <div class="unit-input-container flex items-center gap-3">
+                <input class="appearance-none w-5 h-5 text-gray-500 border-2 border-gray-400 rounded-full checked:bg-dark_sec" type="radio" name="units" value="Celcius" id="celcius-unit">
+                <label class="text-[21px] font-semibold" for="units">Celcius</label>
+                <input class="appearance-none w-5 h-5 text-gray-500 border-2 border-gray-400 rounded-full checked:bg-dark_sec" type="radio" name="units" value="Fahrenheit" id="fahrenheit-unit">
+                <label class="text-[21px] font-semibold" for="units">Fahrenheit</label>
+            </div>
+            <button class="place-self-center h-[45px] w-[170px] mt-[30px] px-5 bg-black dark:bg-white text-white font-semibold dark:text-black rounded-3xl shadow-2xl" type="button" id="continue-btn">Continue</button>
         </div>
     </section>
 
@@ -54,7 +60,7 @@
             </button>
         </div>
 
-        <div class="settings-popup popup-hidden fixed top-[30%] md:top-48 flex flex-col h-[320px] w-[320px] p-3 bg-light_sec dark:bg-dark_sec rounded-3xl transition-all ease-in-out duration-200 z-30" id="settings-popup">
+        <div class="settings-popup popup-hidden fixed top-[30%] md:top-48 flex flex-col h-[330px] w-[320px] p-3 bg-light_sec dark:bg-dark_sec rounded-3xl transition-all ease-in-out duration-200 z-30" id="settings-popup">
             <div class="popup-padding flex flex-col h-full w-full p-3 bg-light_main dark:bg-dark_main rounded-3xl">
                 <button class="close-btn flex justify-center items-center place-self-end px-[9px] py-[9px] rounded-full bg-light_sec dark:bg-dark_sec" id="settings-close-btn">
                     <svg class="fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
@@ -63,10 +69,15 @@
                 </button>
                 <input class="welcome-input h-[45px] w-[210px] md:w-[190px] mt-[30px] mb-[10px] text-[20px] md:text-[16px] bg-light_sec dark:bg-dark_sec" type="text" id="changed-name" maxlength="15" placeholder="Change Name">
                 <input class="welcome-input h-[45px] w-[270px] md:w-[250px] text-[20px] md:text-[16px] bg-light_sec dark:bg-dark_sec" type="text" id="changed-city" maxlength="20" placeholder="Change default city">
+                <div class="unit-input-container flex items-center gap-3 mt-3">
+                    <input class="appearance-none w-5 h-5 text-gray-500 border-2 border-gray-400 rounded-full checked:bg-dark_sec" type="radio" name="units" value="Celcius" id="change-celcius-unit">
+                    <label class="text-[21px] font-semibold" for="units">Celcius</label>
+                    <input class="appearance-none w-5 h-5 text-gray-500 border-2 border-gray-400 rounded-full checked:bg-dark_sec" type="radio" name="units" value="Fahrenheit" id="change-fahrenheit-unit">
+                    <label class="text-[21px] font-semibold" for="units">Fahrenheit</label>
+                </div>
                 <button class="place-self-center h-[45px] w-[170px] mt-[30px] px-5 bg-black dark:bg-white text-white font-semibold dark:text-black rounded-3xl shadow-2xl" type="button" id="change-default-button">Done</button>
             </div>
         </div>
-
 
         <div class="header flex flex-col justify-center h-[85px] place-self-start text-start">
             <p class="mt-[200px] md:mt-[30px] leading-[0px] text-[18px]">Good <span id="timeofday">Evening</span><span>, </span><span id="user-name-display"></span></p>
@@ -74,15 +85,15 @@
         </div>
 
         <div class="weather-info-container flex justify-center items-center place-self-start gap-4 mt-[125px] md:mt-[25px]">
-            <h1 class="flex justify-center items-center h-[40px] pr-3 text-[43px] border-r-2 border-r-solid border-r-dark_sec" id="temperature"><span id="main-temp-value"></span>&deg;<span class="temp-unit-value">C</span></h1>
+            <h1 class="flex justify-center items-center h-[40px] pr-3 text-[43px] border-r-2 border-r-solid border-r-dark_sec" id="temperature"><span id="main-temp-value"></span>&deg;<span class="temp-unit-value"></span></h1>
             <div class="">
                 <p class="font-bold" id="weather-condition-value"></p>
                 <p>
-                    <span><span id="min-temp-value"></span>&deg;<span class="temp-unit-value">C</span></span>
+                    <span><span id="min-temp-value"></span>&deg;<span class="temp-unit-value"></span></span>
                     -
-                    <span><span id="max-temp-value"></span>&deg;<span class="temp-unit-value">C</span></span>
+                    <span><span id="max-temp-value"></span>&deg;<span class="temp-unit-value"></span></span>
                     Real 
-                    <span><span id="temp-value"></span>&deg;<span class="temp-unit-value">C</span></span>
+                    <span><span id="temp-value"></span>&deg;<span class="temp-unit-value"></span></span>
                 </p>
             </div>
         </div>
@@ -100,11 +111,11 @@
                         <p class="font-semibold" id="pressure-value"></p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[15px]">Wind Gust (m/s)</p>
+                        <p class="text-[15px]">Wind Gust <span class="unit-conversion-value"></span></p>
                         <p class="font-semibold" id="windgust-value"></p>
                     </div>
                     <div class="info-box">
-                        <p class="text-[15px]">Wind Speed (m/s)</p>
+                        <p class="text-[15px]">Wind Speed <span class="unit-conversion-value"></span></p>
                         <p class="font-semibold" id="windspeed-value"></p>
                     </div>
                     <div class="info-box">
