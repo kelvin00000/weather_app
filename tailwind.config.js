@@ -15,6 +15,23 @@ module.exports = {
       },
       animation: {
         'spin-f': 'spin 0.5s linear infinite',
+        'custom-infinite': 'customlinear 40s linear infinite',
+        'custom-slide-in': 'customlinear2 10s linear',
+        'custom-slide-in2': 'customlinear3 12s linear'
+      },
+      keyframes: {
+        customlinear: {
+          '0%': { transform: 'translateX(-300%)' },
+          '100%': { transform: 'translateX(1500%)' },
+        },
+        customlinear2: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+        customlinear3: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(5%)' },
+        }
       }
     },
   },

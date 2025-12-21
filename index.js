@@ -67,14 +67,14 @@ function runApp(){
 
     document.getElementById("loader").classList.remove("popup-hidden");
     document.getElementById("main-overlay").classList.remove("popup-hidden");
-    
+    displayData(userName, userCity, userUnit);
+
     setTimeout(()=>{
         document.getElementById("loader").classList.add("popup-hidden");
         document.getElementById("main-overlay").classList.add("popup-hidden");
 
         document.getElementById("welcome-screen").style.display = 'none';
         document.getElementById("main-screen").style.display = 'flex';
-        displayData(userName, userCity, userUnit)
     }, 2000)
 }
 document.getElementById("continue-btn").addEventListener('click', ()=>{
@@ -138,6 +138,23 @@ function displayData(name, city, unit){
         const unitConversionContainer = document.querySelectorAll(".unit-conversion-value");
         if(unit==="&units=imperial") unitConversionContainer.forEach(container=>container.innerHTML="(mph)");
         else unitConversionContainer.forEach(container=>container.innerHTML="(m/s)")
+
+        //ANIMATIONS
+        if(value.weather[0].main==="Clouds") {
+            document.getElementById("rain-animation").style.display = 'none';
+            document.getElementById("sun-animation").style.display = 'none';
+            document.getElementById("cloud-animation").style.display = 'block';
+        }
+        else if(value.weather[0].main==="Clear"||value.weather[0].main==="Sunny") {
+            document.getElementById("rain-animation").style.display = 'none';
+            document.getElementById("cloud-animation").style.display = 'none';
+            document.getElementById("sun-animation").style.display = 'block';
+        }
+        else if(value.weather[0].main==="Rain"||value.weather[0].main==="Thunderstorm") {
+            document.getElementById("cloud-animation").style.display = 'none';
+            document.getElementById("sun-animation").style.display = 'none';
+            document.getElementById("rain-animation").style.display = 'block';
+        }   
     })
     .catch(error => {
         console.error(error);
