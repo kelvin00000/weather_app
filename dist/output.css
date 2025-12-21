@@ -984,6 +984,10 @@ input:-webkit-autofill {
   justify-self: center;
 }
 
+.overflow-hidden{
+  overflow: hidden;
+}
+
 .rounded-3xl{
   border-radius: 1.5rem;
 }
@@ -1154,6 +1158,11 @@ input:-webkit-autofill {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.text-\[darkgray\]{
+  --tw-text-opacity: 1;
+  color: rgb(169 169 169 / var(--tw-text-opacity, 1));
 }
 
 .shadow-2xl{
