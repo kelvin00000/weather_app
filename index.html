@@ -33,8 +33,8 @@
                         C512,333.814,476.178,298,431.997,298z"/>
                 </g>
             </svg>
-            <input class="welcome-input" type="text" id="user-name" placeholder="Name" maxlength="12">
-            <input class="welcome-input w-[250px]" type="text" id="user-city" placeholder="City" maxlength="12">
+            <input class="welcome-input" type="text" id="user-name" placeholder="Name" maxlength="15">
+            <input class="welcome-input w-[250px]" type="text" id="user-city" placeholder="City" maxlength="20">
             <button class="place-self-center h-[45px] w-[170px] mt-[30px] px-5 font-normal bg-black dark:bg-white text-white font-semibold dark:text-black rounded-3xl shadow-2xl" type="button" id="continue-btn">Continue</button>
         </div>
     </section>
@@ -61,8 +61,8 @@
                         <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
                     </svg>
                 </button>
-                <input class="welcome-input h-[45px] w-[210px] md:w-[190px] mt-[30px] mb-[10px] text-[20px] md:text-[16px] bg-light_sec dark:bg-dark_sec" type="text" id="changed-name" maxlength="12" placeholder="Change Name">
-                <input class="welcome-input h-[45px] w-[270px] md:w-[250px] text-[20px] md:text-[16px] bg-light_sec dark:bg-dark_sec" type="text" id="changed-city" maxlength="12" placeholder="Change default city">
+                <input class="welcome-input h-[45px] w-[210px] md:w-[190px] mt-[30px] mb-[10px] text-[20px] md:text-[16px] bg-light_sec dark:bg-dark_sec" type="text" id="changed-name" maxlength="15" placeholder="Change Name">
+                <input class="welcome-input h-[45px] w-[270px] md:w-[250px] text-[20px] md:text-[16px] bg-light_sec dark:bg-dark_sec" type="text" id="changed-city" maxlength="20" placeholder="Change default city">
                 <button class="place-self-center h-[45px] w-[170px] mt-[30px] px-5 bg-black dark:bg-white text-white font-semibold dark:text-black rounded-3xl shadow-2xl" type="button" id="change-default-button">Done</button>
             </div>
         </div>
@@ -88,8 +88,8 @@
         </div>
 
         <div class="weather-details-container flex flex-col md:flex-row items-center gap-[40px] md:gap-[100px]">
-            <div class="weather-deatils w-[99%] mt-6 px-4 py-4 bg-light_sec dark:bg-dark_sec  rounded-3xl">
-                <p class="mb-2 font-bold">Current Condition</p>
+            <div class="weather-deatils w-[99%] md:w-[400px] mt-6 px-4 py-4 bg-light_sec dark:bg-dark_sec  rounded-3xl">
+                <p class="mb-2 font-bold">Current Conditions</p>
                 <div class="grid grid-cols-2 gap-x-1 gap-y-2">
                     <div class="info-box">
                         <p class="text-[15px]">Humidity (%)</p>
@@ -128,7 +128,7 @@
 
             <div class="search-container md:w-[45%]">
                 <div class="flex gap-2">
-                    <input class="welcome-input h-[45px] w-[290px] md:w-[190px] text-[20px] md:text-[16px] " type="text" id="city-search" maxlength="12" placeholder="Search a different city">
+                    <input class="welcome-input h-[45px] w-[290px] md:w-[190px] text-[20px] md:text-[16px] " type="text" id="city-search" maxlength="20" placeholder="Search a different city">
                     <button class="search-btn flex justify-center items-center gap-1 px-4 h-[45px] rounded-full bg-light_sec dark:bg-dark_sec" id="search-city-btn">
                         <svg class="fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#e3e3e3">
                             <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
@@ -140,7 +140,7 @@
         </div>
     </section>
 
-    <div class="loader popup-hidden fixed top-[50%] left-[50%] w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin-f z-50" id="loader"></div>
+    <div class="loader popup-hidden fixed top-[50%] left-[45%] md:left-[50%] w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin-f z-50" id="loader"></div>
     <div class="overlay popup-hidden fixed top-0 h-dvh w-dvw bg-[rgba(0,0,0,.75)] transition-all ease-in-out duration-200 z-20" id="overlay"></div>
     <div class="main-overlay popup-hidden fixed top-0 h-dvh w-dvw bg-[rgba(0,0,0,.75)] transition-all ease-in-out duration-200 z-40" id="main-overlay"></div>
     

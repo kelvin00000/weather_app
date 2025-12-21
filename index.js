@@ -42,6 +42,9 @@ else{
     document.getElementById("welcome-screen").style.display = 'none';
     document.getElementById("main-screen").style.display = 'flex';
     displayData(defaultName, defaultCity);
+    setInterval(()=>{
+        displayData(defaultName, defaultCity);
+    }, 1800000);
 }
 
 
@@ -80,12 +83,16 @@ function displayData(name, city){
     .then(res => res.json())
     .then(value => {
         console.log(value);
+        if(value.sys.country===undefined){
+            displayData(defaultName, defaultCity);
+            return;
+        }
         //HEADER
         document.getElementById("user-city-value").innerHTML = value.name;
         const countryName = new Intl.DisplayNames(['en'], { type: 'region' });
         document.getElementById("user-region-value").innerHTML = countryName.of(value.sys.country);
-        const sunrise = new Date(value.sys.sunrise* value.timezone *1000);
-        const hours = sunrise.getHours();
+        const localTime = new Date(new Date().getTime()+value.timezone*1000);
+        const hours = localTime.getUTCHours();
         let timeOfDayContainer = document.getElementById("timeofday");
         if(hours>=0&&hours<12) timeOfDayContainer.innerHTML = "Morning";
         else if(hours>11&&hours<17) timeOfDayContainer.innerHTML = "Afternoon";
@@ -118,9 +125,9 @@ function displayData(name, city){
     })
     .catch(error => {
         console.error(error);
-        alert("Please check your internet connection")
+        if(error.message === "Failed to fetch") alert("Please check your internet connection");
+        else if(error.message === "Cannot read properties of undefined (reading 'country')") alert("Not a valid city or region, try again");
     });
-
 }
 
 

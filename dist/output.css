@@ -653,6 +653,10 @@ input:-webkit-autofill {
   top: 50%;
 }
 
+.left-\[45\%\]{
+  left: 45%;
+}
+
 .z-20{
   z-index: 20;
 }
@@ -1114,6 +1118,10 @@ input:-webkit-autofill {
     top: 17%;
   }
 
+  .md\:left-\[50\%\]{
+    left: 50%;
+  }
+
   .md\:mt-\[130px\]{
     margin-top: 130px;
   }
@@ -1140,6 +1148,30 @@ input:-webkit-autofill {
 
   .md\:w-\[60\%\]{
     width: 60%;
+  }
+
+  .md\:w-\[90\%\]{
+    width: 90%;
+  }
+
+  .md\:w-\[9\%\]{
+    width: 9%;
+  }
+
+  .md\:w-\[90px\]{
+    width: 90px;
+  }
+
+  .md\:w-\[500px\]{
+    width: 500px;
+  }
+
+  .md\:w-\[400px\]{
+    width: 400px;
+  }
+
+  .md\:w-\[200px\]{
+    width: 200px;
   }
 
   .md\:flex-row{
