@@ -90,7 +90,7 @@ function displayData(name, city, unit){
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a54398c98f1d1ee76bc81c14c54b576d${unit}`)
     .then(res => res.json())
     .then(value => {
-        console.log(value);
+        //console.log(value);
         if(value.sys.country===undefined){
             displayData(defaultName, defaultCity);
             return;
