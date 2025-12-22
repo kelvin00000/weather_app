@@ -211,3 +211,33 @@ function changeDefaults(){
     }, 2000)
 }
 document.getElementById("change-default-button").addEventListener('click', ()=> {changeDefaults()});
+
+////QUOTE CYCLE
+const quotes = [
+    "Lightning strikes Earth 100 times per second. Each bolt is five times hotter than the sun's surface at 30,000 degrees Celsius.",
+    "Snowflakes aren't actually white—they're translucent. They appear white because light reflects off their many ice crystal surfaces at once.",
+    "Clouds can weigh over a million pounds. The water droplets are so small and spread out that air currents keep them floating.",
+    "A single thunderstorm cloud can contain 275 million liters of water—enough to fill 110 Olympic-sized swimming pools completely.",
+    "The fastest wind speed ever recorded was 408 km/h during Tropical Cyclone Olivia in Australia back in April 1996.",
+    "Raindrops aren't teardrop-shaped. They're actually flat on bottom and rounded on top, like tiny hamburger buns falling through air.",
+    "Antarctica is technically a desert. It receives less than 50mm of precipitation yearly, making it drier than the Sahara Desert.",
+    "Ball lightning exists—glowing spheres that float through the air during storms. Scientists still debate exactly how they form or behave.",
+    "You can't see rainbows in the afternoon if you're in the northern hemisphere—the sun's angle makes it geometrically impossible.",
+    "Fog and clouds are identical—both are suspended water droplets. Fog is simply a cloud touching the ground at surface level.",
+    "The coldest temperature ever recorded was -89.2°C in Antarctica. At that temperature, exposed skin freezes in under two minutes.",
+    "Hailstones can exceed the size of softballs. The largest recorded weighed nearly 1kg and fell in South Dakota, USA in 2010.",
+    "Red sunsets happen when longer wavelengths of light scatter less in the atmosphere, passing through more particles at low angles.",
+    "Weather prediction accuracy drops significantly after ten days. Chaos theory means tiny measurement errors compound rapidly over time and distance.",
+    "Tornadoes can have wind speeds exceeding 480 km/h, but most last only minutes. The longest-lasting tornado persisted for 3.5 hours.",
+    "Rain's earthy smell comes from soil bacteria releasing chemicals. Raindrops trap air bubbles that burst and launch these aromatic compounds."
+];
+let quoteCounter = -1;
+function displayQuote(){
+    if(quoteCounter===quotes.length-1) quoteCounter=-1;
+    quoteCounter++;
+    document.getElementById('quote-container').innerHTML = quotes[quoteCounter];
+}
+displayQuote();
+setInterval(()=>{
+    displayQuote();
+}, 300000);
