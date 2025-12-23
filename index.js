@@ -233,13 +233,14 @@ const quotes = [
 ];
 function displayQuote(){
     let quoteCounter = parseInt(localStorage.getItem("currentquote"));
-    if(quoteCounter===NaN) quoteCounter=-1;
+    if(!quoteCounter) quoteCounter=-1;
     if(quoteCounter>=quotes.length-1) {
         quoteCounter=-1;
     };
     quoteCounter++;
     localStorage.setItem("currentquote", quoteCounter);
     document.getElementById('quote-container').innerHTML = quotes[quoteCounter];
+    console.log(quoteCounter);
 }
 displayQuote();
 setInterval(()=>{
