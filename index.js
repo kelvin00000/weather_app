@@ -231,10 +231,13 @@ const quotes = [
     "Tornadoes can have wind speeds exceeding 480 km/h, but most last only minutes. The longest-lasting tornado persisted for 3.5 hours.",
     "Rain's earthy smell comes from soil bacteria releasing chemicals. Raindrops trap air bubbles that burst and launch these aromatic compounds."
 ];
-let quoteCounter = -1;
 function displayQuote(){
-    if(quoteCounter===quotes.length-1) quoteCounter=-1;
+    let quoteCounter = parseInt(localStorage.getItem("currentquote", -1));
+    if(quoteCounter>=quotes.length-1) {
+        quoteCounter=-1;
+    };
     quoteCounter++;
+    localStorage.setItem("currentquote", quoteCounter);
     document.getElementById('quote-container').innerHTML = quotes[quoteCounter];
 }
 displayQuote();
