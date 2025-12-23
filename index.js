@@ -129,7 +129,7 @@ function displayData(name, city, unit){
         if(value.wind.deg===0) windDirContainer.innerHTML = "North";
         else if(value.wind.deg>0&&value.wind.deg<90) windDirContainer.innerHTML = "North East";
         else if(value.wind.deg===90) windDirContainer.innerHTML = "East";
-        else if(value.wind.deg>90&&value.wind.deg<180) windDirContainer.innerHTML = "East South";
+        else if(value.wind.deg>90&&value.wind.deg<180) windDirContainer.innerHTML = "South East";
         else if(value.wind.deg===180) windDirContainer.innerHTML = "South";
         else if(value.wind.deg>180&&value.wind.deg<270) windDirContainer.innerHTML = "South West";
         else if(value.wind.deg===270) windDirContainer.innerHTML = "West";
@@ -233,14 +233,13 @@ const quotes = [
 ];
 function displayQuote(){
     let quoteCounter = parseInt(localStorage.getItem("currentquote"));
-    if(!quoteCounter) quoteCounter=-1;
+    if(!quoteCounter&&quoteCounter!==0) quoteCounter=-1;
     if(quoteCounter>=quotes.length-1) {
         quoteCounter=-1;
     };
     quoteCounter++;
     localStorage.setItem("currentquote", quoteCounter);
     document.getElementById('quote-container').innerHTML = quotes[quoteCounter];
-    console.log(quoteCounter);
 }
 displayQuote();
 setInterval(()=>{
