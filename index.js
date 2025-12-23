@@ -232,7 +232,8 @@ const quotes = [
     "Rain's earthy smell comes from soil bacteria releasing chemicals. Raindrops trap air bubbles that burst and launch these aromatic compounds."
 ];
 function displayQuote(){
-    let quoteCounter = parseInt(localStorage.getItem("currentquote", -1));
+    let quoteCounter = parseInt(localStorage.getItem("currentquote"));
+    if(quoteCounter===NaN) quoteCounter=-1;
     if(quoteCounter>=quotes.length-1) {
         quoteCounter=-1;
     };
